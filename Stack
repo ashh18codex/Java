@@ -1,0 +1,93 @@
+public class stack1{
+	public int[] data;
+	public int DS=10;
+
+	int ptr=-1;
+
+public stack1(){
+	this(DS);
+	}
+
+public stack1(int size){
+	this.data=new int[size];
+	}
+
+public boolean push(int item){
+	if(isfull()){
+	SOP("stack full");
+	return false;
+	}
+	else{
+		ptr++;
+		data[ptr]=item;
+		return true;
+		}
+		}
+
+public void isfull(){
+	return ptr==data.length-1; //ptr is at last index
+	}
+
+public void isempty(){
+	return ptr=-1;
+}
+
+public void pop() throws Exception{
+	if(isempty()){
+		throw new Exception("empty stack");
+			}
+	else{
+		return data[ptr--];
+		}
+		}
+
+public int peek(){
+	return data[ptr];
+	}
+
+public class StackMain{
+	public static void main(String [] args){
+		stack1 s=new stack1(5);
+		s.push(0);
+		s.push(5);
+		s.push(66);
+		s.push(23);
+		s.push(55);
+		
+		SOP(s.pop());
+		SOP(s.pop());
+		SOP(s.pop());
+		SOP(s.pop());
+		SOP(s.pop());
+		}
+	}
+	
+DYNAMIC STACK
+	
+public class Dynamicstack extends stack1{
+	public Dynamic stack(){
+	super();
+	}
+
+	public Dynamic stack(){
+	super(size);
+	}
+
+	@override
+	public boolean push(int item){
+		if(this.isfull()){
+			//double the array size
+			int[]temp=new int[data.length*2];
+			//copy all prev items in new data
+			for(int i=0;i<data.length;i++){
+				temp[i]=data[i];}
+			data=temp;
+			}
+			//insert
+			return super.push(item);
+			}
+			}
+				
+	
+	
+
