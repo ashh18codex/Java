@@ -1,0 +1,166 @@
+public class Queue1{
+	public int[]data;
+	public int DS=10;
+	
+	int end=-1;
+	
+	public Queue1(){
+		this.(DS);}
+		
+	public Queue1(int size){
+		this.data[size];}
+		
+	public boolean isfull(){
+		return end==data.length;}
+		
+	public boolean isempty(){
+		return end==0;}
+		
+	public boolean insert(int item){
+		if(isfull()){
+			return false;}
+		data[end++]=item;
+		return true;}
+		
+	public int remove() throws Exception{
+		if(isempty()){
+			throw new Exception("queue empty");}
+		int removed=data[0];
+		//shift the ele to left
+		for(int i=1;i<end;i++){
+			data[i-1]=data[i];
+			}
+		end--;
+		return removed;
+		}
+		
+	public int front() throws Exception{
+		if(isempty()){
+			throw new Exception("queue empty");}
+		return data[0];
+		}
+		
+	public void diplay(){
+		for(int i=0;i<end;i++){
+			SOP(data[i] + " ");}
+			}
+			
+public class Q{
+	psvm(String [] args)throws Exception{
+		Queue1 q= new Queue1(5);
+		q.insert(2);
+		q.insert(5);
+		q.insert(42);
+		q.insert(27);
+		q.insert(44); 
+		
+		q.display();
+		
+		SOP(q.remove());
+		q.display();
+		}
+		}
+		
+CIRCULAR QUEUE
+
+public class Queuec {
+	public int[]data;
+	public int DS=10;
+	
+	public int end=0;
+	public front end=0;
+	public int size=0;
+	 
+	public Queue1(){
+		this.(DS);}
+		
+	public Queue1(int size){
+		this.data[size];}
+		
+	public boolean isfull(){
+		return size==data.length;}
+		
+	public boolean isempty(){
+		return size==0;}
+		
+	public boolean insert(int item){
+		if(isfull()){
+			return false;}
+		data[end++]=item;
+		end = end % data.length;
+		size++;
+		return true;}
+		
+	public int remove() throws Exception{
+		if(isempty()){
+			throw new Exception("queue empty");}
+		int removed=data[0];
+		front = front%data.length;
+		size--;
+		return removed ;
+		}
+		
+	public int front() throws Exception{
+		if(isempty()){
+			throw new Exception("queue empty");}
+		return data[front];
+		}
+		
+	public void diplay(){
+		for(int i=front;i<end;i++){
+			SOP(data[i] + " ");}
+			}
+			
+	public void display(){
+		if(isempty()){
+			SOP("empty");
+			}
+		int i=front;
+		do{
+			SOP(data[i] + "->");
+			i++;
+			i%=data.length;
+		}while(i!=end);
+		}
+		
+DYNAMIC QUEUE:
+
+public class DynamicQueue extends Queuec{
+	public DynamicQueue (){
+	super();
+	}
+	public DynamicQueue (){
+	super(size);
+	}
+	@override
+	public boolean isert(int item){
+		if(this.isfull()){
+		
+			//double the array size
+			int[]temp=new int[data.length*2];
+			
+			//copy all prev items in new data
+			for(int i=0;i<data.length;i++){
+				temp[1]=data[(front+i)%data.length];}
+			front=0;
+			end=data.length;
+			data=temp;
+			}
+			//insert
+			return super.insert(item);
+			}
+			}
+	
+		
+		
+			
+	
+		
+	
+
+ 
+
+ 
+		
+		
+		
